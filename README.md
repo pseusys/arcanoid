@@ -1,10 +1,10 @@
 # Арканоид
 
 ### Список участников
-- Мельникова Ольга [e-mail](mailto:melnikova.oa00@gmail.com)
-- Николаева Мария [e-mail](mailto:mnikolaeva912@gmail.com)
-- Сергеев Александр [e-mail](mailto:shveitsar215@gmail.com)
-- Щука Александр [e-mail](mailto:shuka.sashaa@gmail.com)
+- Мельникова Ольга [e-mail](mailto:melnikova.oa00@gmail.com) melnikova.oa00@gmail.com
+- Николаева Мария [e-mail](mailto:mnikolaeva912@gmail.com) mnikolaeva912@gmail.com
+- Сергеев Александр [e-mail](mailto:shveitsar215@gmail.com) shveitsar215@gmail.com
+- Щука Александр [e-mail](mailto:shuka.sashaa@gmail.com) shuka.sashaa@gmail.com
 
 ### Описание игры
 В этой игре игрок перемещает подвижную ракетку только вправо или влево,
