@@ -11,11 +11,11 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    paddle.cpp
+    platform.cpp
 
 HEADERS += \
     mainwindow.h \
-    paddle.h
+    platform.h
 
 FORMS += \
     mainwindow.ui
