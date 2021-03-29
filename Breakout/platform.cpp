@@ -4,7 +4,7 @@
 
 Platform::Platform() {
     dx = 0;
-    image.load("paddle.png");
+    image.load("platform.png");
 
     rect = image.rect();
     resetState();
