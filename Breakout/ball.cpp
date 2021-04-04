@@ -1,5 +1,5 @@
 #include "ball.h"
-#include <iostream>
+#include <QDebug>
 
 
 Ball::Ball() {
@@ -14,7 +14,7 @@ Ball::Ball() {
 
 
 Ball::~Ball() {
-    std::cout << ("Ball deleted") << std::endl;
+    qDebug() << ("Ball deleted");
 }
 
 

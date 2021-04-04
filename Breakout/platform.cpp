@@ -1,5 +1,5 @@
 #include "platform.h"
-#include <iostream>
+#include <QDebug>
 
 
 Platform::Platform() {
@@ -12,7 +12,7 @@ Platform::Platform() {
 
 
 Platform::~Platform() {
-    std::cout << ("Paddle deleted") << std::endl;
+    qDebug() << ("Paddle deleted");
 }
 
 
@@ -39,6 +39,6 @@ QRect Platform::getRect() {
 }
 
 
-QImage & Platform::getImage() {
+QImage& Platform::getImage() {
     return image;
 }
