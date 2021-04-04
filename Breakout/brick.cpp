@@ -1,5 +1,5 @@
 #include "brick.h"
-#include <iostream>
+#include <QDebug>
 
 
 Brick::Brick(int x, int y) {
@@ -11,7 +11,7 @@ Brick::Brick(int x, int y) {
 
 
 Brick::~Brick() {
-    std::cout << ("Brick deleted") << std::endl;
+    qDebug() << ("Brick deleted");
 }
 
 
@@ -20,8 +20,8 @@ QRect Brick::getRect() {
 }
 
 
-void Brick::setRect(QRect rct) {
-    rect = rct;
+void Brick::setRect(QRect rect) {
+    this->rect = rect;
 }
 
 
@@ -35,6 +35,6 @@ bool Brick::isDestroyed() {
 }
 
 
-void Brick::setDestroyed(bool destr) {
-    destroyed = destr;
+void Brick::setDestroyed(bool destroyed) {
+    this->destroyed = destroyed;
 }
