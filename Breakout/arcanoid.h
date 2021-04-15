@@ -9,7 +9,7 @@
 #include "platform.h"
 
 
-class Arcanoid {
+class Arcanoid : public QWidget {
 public:
     Arcanoid(QWidget* parent = 0);
     ~Arcanoid();
