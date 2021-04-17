@@ -35,7 +35,7 @@ private:
     static const int DELAY = 10;
     static const int BOTTOM_EDGE = 400;
     Ball* ball;
-    Platform* paddle;
+    Platform* platform;
     Brick* bricks[N_OF_BRICKS];
     bool gameOver;
     bool gameWon;
