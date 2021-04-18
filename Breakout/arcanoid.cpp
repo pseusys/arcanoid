@@ -36,7 +36,6 @@ void Arcanoid::paintEvent(QPaintEvent* e) {
     Q_UNUSED(e);
 
     QPainter painter(this);
-
     if (gameOver) {
         finishGame(&painter, "Game lost");
     } else if (gameWon) {
@@ -63,7 +62,7 @@ void Arcanoid::timerEvent(QTimerEvent* e) {
     Q_UNUSED(e);
 
     moveObjects();
-    checkCollision();
+  //  checkCollision();
     repaint();
 }
 
@@ -108,3 +107,66 @@ void Arcanoid::victory() {
     gameWon = true;
     gameStarted = false;
 }
+
+
+void Arcanoid::finishGame(QPainter* painter, QString message) {
+    QFont font("Courier", 15, QFont::DemiBold);
+    QFontMetrics fm(font);
+
+ //   int textWidth = fm.width(message);
+
+    painter->setFont(font);
+    int h = height();
+    int w = width();
+
+    painter->translate(QPoint(w / 2, h / 2));
+ //   painter->drawText(-textWidth / 2, 0, message);
+}
+
+
+void Arcanoid::moveObjects() {
+    ball->autoMove();
+    platform->move();
+}
+
+
+void Arcanoid::keyReleaseEvent(QKeyEvent* e) {
+    int dx = 0;
+    switch (e->key()) {
+    case Qt::Key_Left:
+        dx = 0;
+        platform->setDx(dx);
+        break;
+    case Qt::Key_Right:
+        dx = 0;
+        platform->setDx(dx);
+        break;
+    }
+}
+
+
+void Arcanoid::keyPressEvent(QKeyEvent* e) {
+    int dx = 0;
+    switch (e->key()) {
+    case Qt::Key_Left:
+        dx = -1;
+        platform->setDx(dx);
+        break;
+    case Qt::Key_Right:
+        dx = 1;
+        platform->setDx(dx);
+        break;
+    case Qt::Key_P:
+        pauseGame();
+        break;
+    case Qt::Key_Space:
+        startGame();
+        break;
+    case Qt::Key_Escape:
+        qApp->exit();
+        break;
+    default:
+        QWidget::keyPressEvent(e);
+    }
+}
+
