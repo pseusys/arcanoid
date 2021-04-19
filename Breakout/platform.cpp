@@ -21,11 +21,36 @@ void Platform::setDx(int x) {
 }
 
 
+int Platform::getDX() {
+    return dx;
+}
+
+
 void Platform::move() {
     int x = rect.x() + dx;
     int y = rect.top();
 
     rect.moveTo(x, y);
+}
+
+
+int Platform::getX() {
+    return rect.x();
+}
+
+
+int Platform::getY() {
+    return rect.y();
+}
+
+
+int Platform::getWidth() {
+    return rect.width();
+}
+
+
+int Platform::getHeight() {
+    return rect.height();
 }
 
 
