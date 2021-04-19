@@ -26,8 +26,8 @@ private:
     int ydir;
     QImage image;
     QRect rect;
-    static const int INITIAL_X = 0;
-    static const int INITIAL_Y = 0;
+    static const int INITIAL_X = 150;
+    static const int INITIAL_Y = 355;
     static const int RIGHT_EDGE = 300;
 };
 

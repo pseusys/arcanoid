@@ -13,18 +13,15 @@ SOURCES += \
     ball.cpp \
     brick.cpp \
     main.cpp \
-    mainwindow.cpp \
     platform.cpp
 
 HEADERS += \
     arcanoid.h \
     ball.h \
     brick.h \
-    mainwindow.h \
     platform.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
