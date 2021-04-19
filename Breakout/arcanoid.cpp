@@ -134,7 +134,6 @@ void Arcanoid::moveObjects() {
             platform->getX() + platform->getWidth() > this->size().width() && platform->getDX() > 0) {
         platform->setDx(0);
     }
-    platform->move();
 }
 
 
