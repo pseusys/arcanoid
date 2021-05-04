@@ -10,9 +10,11 @@
 
 
 class Arcanoid : public QWidget {
+    Q_OBJECT
+
 public:
     Arcanoid(QWidget* parent = 0);
-    ~Arcanoid();
+    virtual ~Arcanoid();
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -27,6 +29,9 @@ protected:
     void stopGame();
     void victory();
     void checkCollision();
+
+signals:
+    void finish();
 
 private:
     int x;

@@ -63,6 +63,9 @@ void Arcanoid::drawObjects(QPainter* painter) {
 void Arcanoid::timerEvent(QTimerEvent* e) {
     Q_UNUSED(e);
 
+    if (!gameStarted) {
+        emit finish();
+    }
     moveObjects();
     checkCollision();
     repaint();
@@ -124,6 +127,10 @@ void Arcanoid::finishGame(QPainter* painter, QString message) {
 
     painter->translate(QPoint(w / 2, h / 2));
     painter->drawText(-textWidth / 2, 0, message);
+
+    if (!paused) {
+        timerId = startTimer(1000);
+    }
 }
 
 
@@ -169,7 +176,7 @@ void Arcanoid::keyPressEvent(QKeyEvent* e) {
         startGame();
         break;
     case Qt::Key_Escape:
-        qApp->exit();
+        emit finish();
         break;
     default:
         QWidget::keyPressEvent(e);
