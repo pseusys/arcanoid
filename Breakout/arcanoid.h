@@ -4,6 +4,7 @@
 
 #include <QWidget>
 #include <QKeyEvent>
+#include <QTimer>
 #include "ball.h"
 #include "brick.h"
 #include "platform.h"

@@ -63,9 +63,6 @@ void Arcanoid::drawObjects(QPainter* painter) {
 void Arcanoid::timerEvent(QTimerEvent* e) {
     Q_UNUSED(e);
 
-    if (!gameStarted) {
-        emit finish();
-    }
     moveObjects();
     checkCollision();
     repaint();
@@ -129,7 +126,7 @@ void Arcanoid::finishGame(QPainter* painter, QString message) {
     painter->drawText(-textWidth / 2, 0, message);
 
     if (!paused) {
-        timerId = startTimer(1000);
+        QTimer::singleShot(2000, this, SIGNAL(finish()));
     }
 }
 
@@ -137,8 +134,8 @@ void Arcanoid::finishGame(QPainter* painter, QString message) {
 void Arcanoid::moveObjects() {
     ball->autoMove();
 
-    if (platform->getX() < 0 && platform->getDX() < 0 ||
-            platform->getX() + platform->getWidth() > this->size().width() && platform->getDX() > 0) {
+    if ((platform->getX() < 0 && platform->getDX() < 0) ||
+            (platform->getX() + platform->getWidth() > this->size().width() && platform->getDX() > 0)) {
         platform->setDx(0);
     }
     platform->move();

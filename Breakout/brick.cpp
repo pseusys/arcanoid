@@ -3,7 +3,8 @@
 
 
 Brick::Brick(int x, int y) {
-    image.load("brickie.png");
+    lives = QRandomGenerator::global()->bounded(1, 4);
+    setImage(lives);
     destroyed = false;
     rect = image.rect();
     rect.translate(x, y);
@@ -35,6 +36,23 @@ bool Brick::isDestroyed() {
 }
 
 
+void Brick::setImage(int lives) {
+    QString imageName = ":/brickie.png";
+    imageName.insert(9, QChar(lives + '0'));
+    image.load(imageName);
+}
+
+
 void Brick::setDestroyed(bool destroyed) {
-    this->destroyed = destroyed;
+    if (destroyed) {
+        lives--;
+        if (lives > 0) {
+            setImage(lives);
+        }
+        else {
+            this->destroyed = true;
+        }
+    } else {
+        this->destroyed = false;
+    }
 }
