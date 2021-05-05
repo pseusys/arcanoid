@@ -37,7 +37,7 @@ void Arcanoid::paintEvent(QPaintEvent* e) {
 
     QPainter painter(this);
     if (gameOver) {
-        finishGame(&painter, "Game lost");
+        finishGame(&painter, "Game lost, score: " + QString::number(score));
     } else if (gameWon) {
         finishGame(&painter, "Victory");
     } else if (paused) {
@@ -49,6 +49,14 @@ void Arcanoid::paintEvent(QPaintEvent* e) {
 
 
 void Arcanoid::drawObjects(QPainter* painter) {
+    QFont font("Courier", 13, QFont::DemiBold);
+    QFontMetrics fm(font);
+
+    QString message = "Score: " + QString::number(score);
+    int textWidth = fm.boundingRect(message).width();
+
+    painter->setFont(font);
+    painter->drawText(0.95 * width() - textWidth, 0.99 * height() - fm.height(), textWidth + 1, fm.height(), 0, message);
     painter->drawImage(ball->getRect(), ball->getImage());
     painter->drawImage(platform->getRect(), platform->getImage());
 
@@ -182,7 +190,7 @@ void Arcanoid::keyPressEvent(QKeyEvent* e) {
 
 
 void Arcanoid::checkCollision() {
-    if (ball->getRect().bottom() > BOTTOM_EDGE) {
+    if (ball->getRect().bottom() > HEIGHT) {
         stopGame();
     }
 
@@ -252,6 +260,7 @@ void Arcanoid::checkCollision() {
                 }
 
                 bricks[i]->setDestroyed(true);
+                score++;
             }
         }
     }
