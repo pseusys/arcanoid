@@ -1,4 +1,5 @@
 #include "ball.h"
+#include "arcanoid.h"
 #include <QDebug>
 
 
@@ -25,7 +26,7 @@ void Ball::autoMove() {
         xdir = 1;
     }
 
-    if (rect.right() == RIGHT_EDGE) {
+    if (rect.right() == Arcanoid::WIDTH) {
         xdir = -1;
     }
 

@@ -17,6 +17,9 @@ public:
     Arcanoid(QWidget* parent = 0);
     virtual ~Arcanoid();
 
+    static const int WIDTH = 300;
+    static const int HEIGHT = 400;
+
 protected:
     void paintEvent(QPaintEvent *);
     void timerEvent(QTimerEvent *);
@@ -39,7 +42,6 @@ private:
     int timerId;
     static const int N_OF_BRICKS = 30;
     static const int DELAY = 10;
-    static const int BOTTOM_EDGE = 400;
     Ball* ball;
     Platform* platform;
     Brick* bricks[N_OF_BRICKS];
@@ -47,6 +49,7 @@ private:
     bool gameWon;
     bool gameStarted;
     bool paused;
+    int score = 0;
 };
 
 #endif // ARCANOID_H
