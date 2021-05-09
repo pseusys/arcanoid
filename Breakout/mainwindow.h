@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "arcanoid.h"
+#include "results.h"
 
 
 namespace Ui {
@@ -19,12 +20,15 @@ public:
 
 private slots:
     void restart();
-    void on_pushButton_3_clicked();
-    void on_pushButton_clicked();
+    void reset();
+    void on_new_game_clicked();
+    void on_results_clicked();
+    void on_exit_clicked();
 
 private:
     Ui::MainWindow* ui;
     Arcanoid* arcanoid;
+    Results* results;
 };
 
 #endif // MAINWINDOW_H

@@ -1,5 +1,8 @@
 #include <QPainter>
+#include <QDateTime>
 #include <QApplication>
+#include <iostream>
+#include <fstream>
 #include "arcanoid.h"
 
 
@@ -119,6 +122,19 @@ void Arcanoid::victory() {
     gameStarted = false;
 }
 
+void commitResult(int score) {
+    QDateTime current = QDateTime::currentDateTime();
+
+    try {
+        std::ofstream fileStream;
+        fileStream.open("./results.400s", std::ios_base::app);
+        fileStream << current.toString("dd.MM.yyyy-hh:mm:ss").toStdString() << " " << QString::number(score).toStdString() << " ";
+        fileStream.close();
+    } catch(std::ifstream::failure& e) {
+        std::cout << "write not ok" << std::endl;
+    }
+}
+
 
 void Arcanoid::finishGame(QPainter* painter, QString message) {
     QFont font("Courier", 15, QFont::DemiBold);
@@ -132,6 +148,8 @@ void Arcanoid::finishGame(QPainter* painter, QString message) {
 
     painter->translate(QPoint(w / 2, h / 2));
     painter->drawText(-textWidth / 2, 0, message);
+
+    commitResult(score);
 
     if (!paused) {
         QTimer::singleShot(2000, this, SIGNAL(finish()));
