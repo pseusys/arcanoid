@@ -16,14 +16,16 @@ SOURCES += \
     brick.cpp \
     main.cpp \
     mainwindow.cpp \
-    platform.cpp
+    platform.cpp \
+    results.cpp
 
 HEADERS += \
     arcanoid.h \
     ball.h \
     brick.h \
     mainwindow.h \
-    platform.h
+    platform.h \
+    results.h
 
 FORMS += \
     mainwindow.ui
