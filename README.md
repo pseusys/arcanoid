@@ -33,5 +33,5 @@
 - Реализовать функционал игры
 - Разработать удобный графический интерфейс
 ### Архитектура
-<img src="https://github.com/pseusys/arcanoid/blob/main/architecture.jpg?raw=true" alt="General MVP model">
+<img src="https://github.com/pseusys/arcanoid/blob/main/.formal/architecture.jpg?raw=true" alt="General MVP model">
 
